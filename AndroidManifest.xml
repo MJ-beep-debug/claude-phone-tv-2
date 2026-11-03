@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Needed to talk to the laptop's signaling server and to stream media over Wi-Fi. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Lets the app show your phone's Wi-Fi address and notice connection loss. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- Keeps the screen on while a cast is playing. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- Lets playback volume be adjusted and routed to the speaker. -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <!-- No camera, microphone, storage or location permissions are used. -->
+
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.WifiTv"
+        android:usesCleartextTraffic="true">
+        <!-- Cleartext ws:// is required: the signaling server on your laptop has no TLS certificate.
+             It carries only SDP/ICE text, never video. Media itself is encrypted by WebRTC (DTLS-SRTP). -->
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="sensorLandscape"
+            android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ReceiverActivity"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            android:launchMode="singleTask"
+            android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout" />
+    </application>
+</manifest>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fillViewport="true" android:background="@color/bg">
+
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="WiFi TV Receiver" android:textSize="28sp" android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:gravity="center_vertical"
+            android:orientation="horizontal" android:background="@drawable/card_bg" android:padding="20dp">
+            <ImageView android:id="@+id/statusDot" android:layout_width="28dp" android:layout_height="28dp"
+                android:src="@drawable/dot" android:contentDescription="status" />
+            <TextView android:id="@+id/statusText" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginStart="16dp" android:text="Idle" android:textSize="24sp" android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:orientation="vertical"
+            android:background="@drawable/card_bg" android:padding="20dp">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="This phone (Wi-Fi address)" android:textColor="@color/muted" />
+            <TextView android:id="@+id/ipText" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="…" android:textSize="22sp" android:textStyle="bold" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:text="Pairing code (type this on the laptop)" android:textColor="@color/muted" />
+            <TextView android:id="@+id/codeText" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="------" android:textSize="40sp" android:textStyle="bold"
+                android:letterSpacing="0.2" android:textColor="@color/accent" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:text="Laptop address (shown by the server, e.g. 192.168.1.20:8765)"
+                android:textColor="@color/muted" />
+            <EditText android:id="@+id/hostInput" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:inputType="textUri" android:hint="192.168.1.20:8765" android:singleLine="true"
+                android:textColorHint="#55606C" android:imeOptions="actionDone" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:text="Video quality" android:textColor="@color/muted" />
+            <Spinner android:id="@+id/qualitySpinner" android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+            <TextView android:id="@+id/senderText" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:text="Connected sender: none" android:textColor="@color/muted" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:orientation="horizontal">
+            <Button android:id="@+id/startBtn" android:layout_width="0dp" android:layout_height="72dp"
+                android:layout_weight="2" android:background="@drawable/btn_primary" android:text="Start Receiving"
+                android:textColor="#04210F" android:textSize="20sp" android:textStyle="bold" android:textAllCaps="false" />
+            <Button android:id="@+id/stopBtn" android:layout_width="0dp" android:layout_height="72dp"
+                android:layout_weight="1" android:layout_marginStart="12dp" android:background="@drawable/btn_danger"
+                android:text="Stop Receiving" android:textColor="#FFFFFF" android:textSize="18sp"
+                android:textStyle="bold" android:textAllCaps="false" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:textColor="@color/muted" android:lineSpacingExtra="4dp"
+            android:text="1. On your laptop run the server and open http://localhost:8765\n2. Type the laptop address above and tap Start Receiving\n3. On the laptop enter the pairing code and click Start Casting" />
+    </LinearLayout>
+</ScrollView>

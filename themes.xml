@@ -1,0 +1,15 @@
+<resources>
+    <color name="bg">#0E1116</color>
+    <color name="card">#171C24</color>
+    <color name="accent">#3DDC84</color>
+    <color name="muted">#9AA3AE</color>
+    <color name="danger">#FF5252</color>
+    <color name="amber">#FFB300</color>
+    <style name="Theme.WifiTv" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:statusBarColor">@color/bg</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+        <item name="android:textColor">#E8EAED</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+</resources>

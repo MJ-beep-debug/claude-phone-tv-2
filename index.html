@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WiFi TV Sender</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>WiFi TV <span>Sender</span></h1>
+  <p class="sub">Cast this computer's screen, a window or a browser tab to your phone over Wi-Fi.</p>
+
+  <section class="card">
+    <label for="code">Pairing code shown on the phone</label>
+    <input id="code" inputmode="numeric" maxlength="6" placeholder="123456" autocomplete="off">
+    <div class="row">
+      <button id="startBtn" class="primary">Start Casting</button>
+      <button id="stopBtn" class="danger" disabled>Stop Casting</button>
+    </div>
+    <div id="status" class="pill idle">Ready</div>
+    <p class="hint">Phone setup: open <b>WiFi TV Receiver</b>, type
+      <b id="addr" class="mono">…</b> into <i>Laptop address</i>, tap <b>Start Receiving</b>, then enter the code above.</p>
+  </section>
+
+  <section class="card">
+    <video id="preview" autoplay muted playsinline></video>
+    <p id="audioNote" class="hint"></p>
+  </section>
+
+  <details class="card">
+    <summary>Sharing audio (read this if the phone is silent)</summary>
+    <ul>
+      <li><b>Browser tab:</b> pick the <i>Chrome Tab</i> / <i>Edge Tab</i> page in the picker and tick <b>Also share tab audio</b>. Works on Windows, macOS, Linux and ChromeOS.</li>
+      <li><b>Entire screen:</b> tick <b>Also share system audio</b>. This is supported on <b>Windows only</b>; on macOS and Linux browsers cannot capture system audio from a screen or window share.</li>
+      <li><b>A single window:</b> browsers do not offer audio for window shares.</li>
+      <li>The audio checkbox appears at the bottom-left of the browser's share dialog. If it is missing, the chosen source has no capturable audio.</li>
+    </ul>
+  </details>
+
+  <details class="card">
+    <summary>Connection log</summary>
+    <pre id="log"></pre>
+  </details>
+</main>
+<script src="sender.js"></script>
+</body>
+</html>

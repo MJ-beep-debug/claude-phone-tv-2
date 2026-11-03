@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="#000000">
+
+    <org.webrtc.SurfaceViewRenderer android:id="@+id/video"
+        android:layout_width="match_parent" android:layout_height="match_parent" />
+
+    <!-- Shown while waiting / reconnecting -->
+    <LinearLayout android:id="@+id/overlay" android:layout_width="match_parent" android:layout_height="match_parent"
+        android:background="#E60E1116" android:gravity="center" android:orientation="vertical">
+        <TextView android:id="@+id/overlayTitle" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Connecting…" android:textSize="30sp" android:textStyle="bold" />
+        <TextView android:id="@+id/overlayDetail" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:gravity="center" android:textColor="@color/muted" android:textSize="18sp" />
+        <TextView android:id="@+id/overlayCode" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:textColor="@color/accent" android:textSize="48sp"
+            android:textStyle="bold" android:letterSpacing="0.2" />
+    </LinearLayout>
+
+    <!-- Tap the picture to show / hide -->
+    <LinearLayout android:id="@+id/controls" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_gravity="bottom" android:background="#B3000000" android:gravity="center_vertical"
+        android:orientation="horizontal" android:padding="12dp">
+        <TextView android:id="@+id/infoText" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:ellipsize="end" android:singleLine="true" android:text="" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Vol " />
+        <SeekBar android:id="@+id/volume" android:layout_width="160dp" android:layout_height="wrap_content" />
+        <Button android:id="@+id/muteBtn" android:layout_width="wrap_content" android:layout_height="48dp"
+            android:layout_marginStart="8dp" android:text="Mute" android:textAllCaps="false" />
+        <Button android:id="@+id/fitBtn" android:layout_width="wrap_content" android:layout_height="48dp"
+            android:layout_marginStart="8dp" android:text="Fill" android:textAllCaps="false" />
+        <Button android:id="@+id/disconnectBtn" android:layout_width="wrap_content" android:layout_height="48dp"
+            android:layout_marginStart="8dp" android:background="@drawable/btn_danger" android:text="Disconnect"
+            android:textColor="#FFFFFF" android:textAllCaps="false" />
+    </LinearLayout>
+</FrameLayout>
